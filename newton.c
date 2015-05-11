@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 
 /* 与えらえれるx,y座標 */
@@ -33,10 +34,8 @@ void difference(void)
     int i, j, k;        //ループ用変数
     
     /* y座標をbuf配列にコピーする */
-    for(i = 0; i < N; i++){
-        buf[i] = y[i];
-    }
-    
+    memcpy(buf, y, (sizeof(double) * N));
+
     /* 階差計算を行う */
     for(j = 0; j < N - 1; j++){
         for(k = 0; k < (N - (1 + j)); k++){
